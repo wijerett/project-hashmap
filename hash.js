@@ -8,17 +8,30 @@ export class HashMap {
     }
 
     set(key, value) {
+
         const index = hash(key);
         if (!this.buckets[index]) {
             this.buckets[index] = [];
         }
+        let entryCount = 0;
         for (let i = 0; i < this.buckets[index].length; i ++) {
             if (this.buckets[index][i][0] === key) {
                 this.buckets[index][i][1] = value;
                 return;
             }
+
         }
         this.buckets[index].push([key, value]);
+    }
+
+    getLoad() {
+        let entryCount = 0;
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                entryCount += this.buckets[i].length;
+            }
+        }
+        return entryCount / this.capacity;
     }
 }
 
