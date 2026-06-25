@@ -116,4 +116,27 @@ describe('length of hash map', () => {
         map.set('surname', 'Win');
         expect(map.length()).toEqual(2);
     });
-})
+});
+
+describe('clear hash map', () => {
+    beforeEach(() => {
+        map = new HashMap();
+    });
+    test('clears elements in hash map', () => {
+        map.set('name', 'Jeremy');
+        map.set('surname', 'Win');
+        map.clear();
+        expect(map.length()).toBe(0);
+    });
+});
+
+describe('keys', () => {
+    beforeEach(() => {
+        map = new HashMap();
+    });
+    test('returns all keys in hash map', () => {
+        map.set('name', 'Jeremy');
+        map.set('city', 'York');
+        expect(map.keys()).toEqual(['name', 'city']);
+    });
+});

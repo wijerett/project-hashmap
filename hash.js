@@ -78,9 +78,20 @@ export class HashMap {
     }
 
     clear() {
-        
+        this.buckets = new Array(this.capacity);
     }
 
+    keys() {
+        const keys = [];
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                for (const [k] of this.buckets[i]) {
+                    keys.push(k);
+                }
+            }
+        }
+        return keys;
+    }
 
     getLoad() {
         let entryCount = 0;
