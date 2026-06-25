@@ -91,6 +91,29 @@ describe('has', () => {
 
 describe('remove', () => {
     beforeEach(() => {
-        
-    })
+        map = new HashMap();
+    });
+    test('removes element by provided key', () => {
+        map.set('name', 'Jeremy');
+        map.remove('name');
+        expect(map.get('name')).toBeNull();
+    });
+    test('returns true when key is removed', () => {
+        map.set('name', 'Jeremy');
+        expect(map.remove('name')).toBe(true);
+    });
+    test('returns false when key does not exist', () => {
+        expect(map.remove('ghost')).toBe(false);
+    });
+});
+
+describe('length of hash map', () => {
+    beforeEach(() => {
+        map = new HashMap();
+    });
+    test('returns length of hash map', () => {
+        map.set('name', 'Jeremy');
+        map.set('surname', 'Win');
+        expect(map.length()).toEqual(2);
+    });
 })

@@ -66,6 +66,21 @@ export class HashMap {
         return true;
     }
 
+    length() {
+        let entryCount = 0;
+        
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                entryCount += this.buckets[i].length;
+            }
+        }
+        return entryCount;
+    }
+
+    clear() {
+        
+    }
+
 
     getLoad() {
         let entryCount = 0;
