@@ -140,3 +140,30 @@ describe('keys', () => {
         expect(map.keys()).toEqual(['name', 'city']);
     });
 });
+
+describe('values', () => {
+    beforeEach(() => {
+        map = new HashMap();
+    });
+    test('returns all values in hash map', () => {
+        map.set('name', 'Jeremy');
+        map.set('city', 'York');
+        expect(map.values()).toEqual(['Jeremy', 'York']);
+    });
+});
+
+describe('key and value returned', () => {
+    beforeEach(() => {
+        map = new HashMap();
+    });
+    test('returns all key value pairs in hash map', () => {
+        map.set('name', 'Jeremy');
+        map.set('city', 'York');
+        map.set('car', 'Toyota');
+        expect(map.entries()).toEqual(expect.arrayContaining([
+            ['name', 'Jeremy'], 
+            ['city', 'York'], 
+            ['car', 'Toyota']
+        ]));
+    });
+});

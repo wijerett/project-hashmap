@@ -93,6 +93,30 @@ export class HashMap {
         return keys;
     }
 
+    values() {
+        const values = [];
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                for (const [k, v] of this.buckets[i]) {
+                    values.push(v)
+                }
+            }
+        }
+        return values;
+    }
+
+    entries() {
+        const keyValuePair = [];
+        for (let i = 0; i < this.buckets.length; i++) {
+            if (this.buckets[i]) {
+                for (const [k, v] of this.buckets[i]) {
+                    keyValuePair.push([k, v])
+                }
+            }
+        }
+        return keyValuePair;
+    }
+
     getLoad() {
         let entryCount = 0;
         for (let i = 0; i < this.buckets.length; i++) {
