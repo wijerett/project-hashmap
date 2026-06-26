@@ -1,8 +1,8 @@
 import { HashMap } from "./hash.js";
 
 
-console.log(hash("John"));
-console.log(hash("Martha"));
+// console.log(HashMap("John"));
+// console.log(HashMap("Martha"));
 const test = new HashMap()
 test.set('apple', 'red')
 test.set('banana', 'yellow')
